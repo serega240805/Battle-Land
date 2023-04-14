@@ -128,8 +128,8 @@ body {
 		color: #ffffff;
 		box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.15);
 		padding: 20px 40px;
-		&:hover{
-			background: #4578FB;
+		&:hover {
+			background: #4578fb;
 			transform: translateY(-10px);
 			transition: 600ms;
 		}
@@ -145,7 +145,7 @@ body {
 		color: #ffffff;
 		border: 1px solid #ffffff;
 		filter: drop-shadow(0px 4px 31px rgba(0, 0, 0, 0.15));
-		&:hover{
+		&:hover {
 			transform: translateY(-10px);
 			transition: 600ms;
 		}
@@ -154,5 +154,243 @@ body {
 	&__img {
 		width: 100%;
 		height: auto;
+	}
+}
+.features {
+	font-family: "Inter";
+	padding-bottom: 100px;
+	&__title {
+		font-weight: 400;
+		font-size: 52px;
+		line-height: 62px;
+		letter-spacing: 0.2px;
+		margin-bottom: 27px;
+		text-align: center;
+		margin-top: 160px;
+	}
+
+	&__text {
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		letter-spacing: 0.2px;
+		max-width: 591px;
+		margin: 0 auto;
+		margin-bottom: 80px;
+	}
+
+	&__body {
+		display: flex;
+		gap: 56px;
+		margin-bottom: 80px;
+	}
+
+	&__left {
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			width: 193px;
+			height: 193px;
+			left: 60px;
+			bottom: 150px;
+			background: url(/images/Features/circle-ribbon.svg);
+			animation: spiner 10s infinite;
+		}
+	}
+
+	@keyframes spiner {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(360deg);
+		}
+	}
+
+	&__right {
+		margin-top: 120px;
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-bottom: 48px;
+	}
+
+	&__box-img {
+		margin-bottom: 24px;
+	}
+
+	&__box-title {
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 30px;
+		letter-spacing: 0.1px;
+		margin-bottom: 20px;
+		max-width: 154px;
+	}
+
+	&__box-text {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 0.2px;
+		max-width: 334px;
+	}
+}
+.contents {
+	font-family: "Inter";
+	padding-bottom: 50px;
+	margin-bottom: 100px;
+	&__title {
+		font-weight: 400;
+		font-size: 52px;
+		line-height: 62px;
+		letter-spacing: 0.2px;
+		text-align: center;
+		margin: 0px 60px 0px 20px;
+	}
+
+	&__text {
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		letter-spacing: 0.2px;
+		max-width: 574px;
+		margin: 0 auto;
+		margin-bottom: 54px;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: center;
+		gap: 33px;
+	}
+
+	&__box {
+		padding: 25px;
+		background: #ffffff;
+		box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.15);
+		border-radius: 10px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		&:nth-child(2) {
+			&::before {
+				content: "";
+				position: absolute;
+				width: 105px;
+				height: 108px;
+				right: 0;
+				top: 0;
+				background: url(/images/Contents/New.png);
+			}
+		}
+	}
+
+	&__box-title {
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		letter-spacing: 0.1px;
+		padding: 10px 0px;
+		color: #000000;
+		margin-bottom: 30px;
+	}
+
+	&__box-text {
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 24px;
+		text-align: center;
+		letter-spacing: 0.2px;
+		color: #5c5c5c;
+		margin-bottom: 40px;
+		max-width: 334px;
+	}
+
+	&__box-btn {
+		padding: 14px 46px;
+		color: #ffffff;
+		background: #4452fe;
+		box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.15);
+		margin-bottom: 30px;
+	}
+
+	&__box-img {
+	}
+}
+.gallery {
+	font-family: "Inter";
+	padding: 60px 0px;
+	&__title {
+		font-weight: 400;
+		font-size: 52px;
+		line-height: 62px;
+		letter-spacing: 0.2px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	&__text {
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 30px;
+		text-align: center;
+		letter-spacing: 0.2px;
+		margin-bottom: 54px;
+		text-align: center;
+		max-width: 574px;
+		margin: 0 auto;
+	}
+
+	&__body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 32px;
+	}
+
+	&__left {
+		img{
+			border-radius: 12px;
+			object-fit: cover;
+		}
+	}
+
+	&__right {
+		display: grid;
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
+	}
+
+	&__img {
+		object-fit: cover;
+		border-radius: 12px;
+		&:nth-child(2){
+			grid-column-start: 1;
+		}
+		&:nth-child(3){
+			grid-column-start: 1;
+		}
+		&:nth-child(4){
+			grid-column-start: 0;
+			grid-row-start: 0;
+		}
+		&:nth-child(5){
+			grid-column-start: 0;
+			grid-row-start: 0;
+		}
+		&:nth-child(6){
+			grid-column-start: 0;
+			grid-row-start: 0;
+		}
 	}
 }
