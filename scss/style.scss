@@ -35,7 +35,7 @@ body {
 		position: fixed;
 		background: #181818;
 		z-index: 99;
-		}
+	}
 	&__body {
 		display: flex;
 		align-items: center;
@@ -43,7 +43,7 @@ body {
 		padding: 30px 0;
 		@include breakpoint(lg) {
 			padding: 15px 0;
-			}
+		}
 	}
 
 	&__logo {
@@ -228,7 +228,9 @@ body {
 }
 .main {
 	font-family: "Inter";
-
+	@include breakpoint(lg) {
+		margin-top: 100px;
+	}
 	&__body {
 		display: flex;
 		flex-direction: column;
@@ -264,6 +266,9 @@ body {
 		align-items: center;
 		gap: 35px;
 		margin-bottom: 35px;
+		@include breakpoint(xs) {
+			flex-direction: column;
+		}
 	}
 
 	&__btn-purple {
@@ -301,6 +306,7 @@ body {
 	&__img {
 		width: 100%;
 		height: auto;
+		margin-bottom: 30px;
 	}
 }
 .features {
@@ -316,7 +322,7 @@ body {
 		letter-spacing: 0.2px;
 		margin-bottom: 27px;
 		text-align: center;
-		margin-top: 160px;
+		margin-top: 60px;
 	}
 
 	&__text {
@@ -342,15 +348,19 @@ body {
 
 	&__left {
 		position: relative;
-		&::after {
-			content: "";
-			position: absolute;
-			width: 193px;
-			height: 193px;
-			left: 60px;
-			bottom: 150px;
-			background: url(../images/Features/circle-ribbon.svg);
-			animation: spiner 10s infinite;
+	}
+	&__left-img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	&__spin {
+		position: absolute;
+		left: 60px;
+		bottom: 180px;
+		animation: spiner 10s infinite;
+		@include breakpoint(lg) {
+			display: none;
 		}
 	}
 
@@ -371,6 +381,10 @@ body {
 			justify-content: center;
 			margin-top: 0px;
 		}
+		@include breakpoint(xs) {
+			gap: 34px;
+			flex-direction: column;
+		}
 	}
 
 	&__box {
@@ -378,10 +392,16 @@ body {
 		flex-direction: column;
 		align-items: flex-start;
 		margin-bottom: 48px;
+		@include breakpoint(xs) {
+			margin-bottom: 0;
+		}
 	}
 
 	&__box-img {
 		margin-bottom: 24px;
+		@include breakpoint(xs) {
+			margin-bottom: 16px;
+		}
 	}
 
 	&__box-title {
@@ -394,6 +414,9 @@ body {
 		@include breakpoint(lg) {
 			max-width: none;
 		}
+		@include breakpoint(xs) {
+			margin-bottom: 12px;
+		}
 	}
 
 	&__box-text {
@@ -405,6 +428,9 @@ body {
 		@include breakpoint(lg) {
 			max-width: 190px;
 		}
+		@include breakpoint(xs) {
+			max-width: 334px;
+		}
 	}
 }
 .contents {
@@ -413,14 +439,15 @@ body {
 	margin-bottom: 100px;
 	@include breakpoint(lg) {
 		margin-bottom: 50px;
+		padding-bottom: 0px;
 	}
 	&__title {
 		font-weight: 400;
 		font-size: 52px;
 		line-height: 62px;
 		letter-spacing: 0.2px;
+		margin: 40px 0px 20px 0px;
 		text-align: center;
-		margin: 0px 60px 0px 20px;
 	}
 
 	&__text {
@@ -441,6 +468,9 @@ body {
 		margin: 0px 15px 0px 15px;
 		@include breakpoint(lg) {
 			gap: 20px;
+		}
+		@include breakpoint(xs) {
+			flex-direction: column;
 		}
 	}
 
@@ -475,6 +505,9 @@ body {
 		padding: 10px 0px;
 		color: #000000;
 		margin-bottom: 30px;
+		@include breakpoint(xs) {
+			margin-bottom: 20px;
+		}
 	}
 
 	&__box-text {
@@ -486,6 +519,9 @@ body {
 		color: #5c5c5c;
 		margin-bottom: 40px;
 		max-width: 334px;
+		@include breakpoint(xs) {
+			margin-bottom: 10px;
+		}
 	}
 
 	&__box-btn {
@@ -508,6 +544,9 @@ body {
 	font-family: "Inter";
 	padding: 60px 0px;
 	margin-bottom: 60px;
+	@include breakpoint(xs) {
+		padding: 30px 0px;
+	}
 	&__title {
 		font-weight: 400;
 		font-size: 52px;
@@ -537,6 +576,9 @@ body {
 			flex-direction: column;
 			gap: 30px;
 		}
+		@include breakpoint(lg) {
+			gap: 0;
+		}
 	}
 
 	&__left {
@@ -562,6 +604,9 @@ body {
 		@include breakpoint(lg) {
 			grid-template-rows: repeat(3, 1fr);
 			grid-template-columns: repeat(2, 1fr);
+		}
+		@include breakpoint(lg) {
+			gap: 10px;
 		}
 	}
 
@@ -641,7 +686,7 @@ body {
 		line-height: 62px;
 		letter-spacing: 0.2px;
 		text-align: center;
-		margin: 0px 60px 0px 20px;
+		margin: 60px 0px 20px 0px;
 	}
 
 	&__text {
@@ -664,6 +709,12 @@ body {
 			justify-items: center;
 			row-gap: 30px;
 		}
+		@include breakpoint(xs) {
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 1fr);
+			justify-items: center;
+			row-gap: 30px;
+		}
 	}
 
 	&__img {
@@ -673,12 +724,18 @@ body {
 			@include breakpoint(lg) {
 				grid-column-start: 2;
 			}
+			@include breakpoint(xs) {
+				grid-column-start: 1;
+			}
 		}
 		&:nth-child(5) {
 			grid-column-start: 0;
 			grid-row-start: 0;
 			@include breakpoint(lg) {
 				grid-column-start: 3;
+			}
+			@include breakpoint(xs) {
+				grid-column-start: 2;
 			}
 		}
 		&:nth-child(6) {
@@ -699,6 +756,9 @@ body {
 		letter-spacing: 0.2px;
 		text-align: center;
 		margin: 60px 0px;
+		@include breakpoint(xs) {
+			margin: 40px 0px;
+		}
 	}
 
 	&__body {
@@ -707,6 +767,10 @@ body {
 		justify-content: center;
 		gap: 22px;
 		margin-bottom: 30px;
+		@include breakpoint(xs) {
+			flex-direction: column;
+			gap: 0;
+		}
 	}
 
 	&__body-left {
@@ -722,6 +786,10 @@ body {
 		@include breakpoint(lg) {
 			min-width: 345px;
 			min-height: 278px;
+		}
+		@include breakpoint(xs) {
+			min-width: none;
+			min-height: none;
 		}
 	}
 
@@ -786,6 +854,9 @@ body {
 			max-height: 732px;
 			flex-direction: column;
 		}
+		@include breakpoint(xs) {
+			border-radius: 0px;
+		}
 	}
 
 	&__left {
@@ -809,6 +880,14 @@ body {
 			text-align: center;
 			margin: 0 auto 36px auto;
 		}
+		@include breakpoint(xs) {
+			font-weight: 400;
+			font-size: 36px;
+			line-height: 150%;
+			text-align: center;
+			letter-spacing: 0.2px;
+			margin-bottom: 26px;
+		}
 	}
 
 	&__btn {
@@ -820,6 +899,7 @@ body {
 		background: #4452fe;
 		box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.15);
 		padding: 13.5px 67px;
+		white-space: nowrap;
 		@include breakpoint(lg) {
 			margin: 0 auto;
 		}
@@ -841,6 +921,9 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	@include breakpoint(xs) {
+		margin: 50px 0;
+	}
 }
 .footer {
 	&__main {
@@ -850,6 +933,9 @@ body {
 			flex-direction: column;
 			margin: 50px 0px;
 			gap: 50px;
+		}
+		@include breakpoint(xs) {
+			margin: 50px 0;
 		}
 	}
 
