@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@300;400;500;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
 * {
   padding: 0s;
   margin: 0;
@@ -76,7 +76,6 @@ body {
   font-size: 30px;
   color: #ffffff;
   font-family: "Inter", sans-serif;
-  font-family: "Roboto", sans-serif;
 }
 
 .wrapper {
@@ -146,6 +145,12 @@ body {
   border: 1px solid #ffffff;
   -webkit-filter: drop-shadow(0px 4px 31px rgba(0, 0, 0, 0.15));
           filter: drop-shadow(0px 4px 31px rgba(0, 0, 0, 0.15));
+}
+.header__btn:hover {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: 600ms;
+  transition: 600ms;
 }
 
 .main {
@@ -646,4 +651,74 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.footer__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 75px;
+  margin: 100px 0px;
+}
+.footer__item-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.1px;
+  margin-bottom: 15px;
+}
+.footer__item-link {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  color: #535353;
+}
+.footer__item-link:hover {
+  color: #ffffff;
+}
+.footer__right {
+  margin-left: 15s0px;
+}
+.footer__map {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  margin-bottom: 23px;
+  margin-left: 40px;
+  position: relative;
+}
+.footer__map::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: -40px;
+  bottom: 0;
+  background: url(../images/footer/map.svg);
+}
+.footer__tel {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+  position: relative;
+}
+.footer__tel::before {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 40px;
+  left: -50px;
+  bottom: 0;
+  background: url(../images/footer/tel.svg);
+}
+.footer__box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
 }
