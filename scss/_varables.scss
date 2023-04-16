@@ -15,7 +15,7 @@
         @media (max-width:576px) {@content;}
     }
     @else if $point == xs {
-        @media (max-width:320px) {@content;}
+        @media (max-width:479px) {@content;}
     }
     @else if $point == minlg {
         @media (min-width:993px) {@content;}

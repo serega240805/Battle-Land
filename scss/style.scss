@@ -28,12 +28,22 @@ body {
 /*------------------------------------*/
 
 .header {
+	font-family: "Inter";
 	margin-bottom: 85px;
+	@include breakpoint(lg) {
+		width: 100%;
+		position: fixed;
+		background: #181818;
+		z-index: 99;
+		}
 	&__body {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		padding: 30px 0;
+		@include breakpoint(lg) {
+			padding: 15px 0;
+			}
 	}
 
 	&__logo {
@@ -47,13 +57,15 @@ body {
 		align-items: center;
 		gap: 40px;
 		margin-right: 80px;
+		@include breakpoint(lg) {
+			display: none;
+		}
 	}
 
 	&__item {
 	}
 
 	&__link {
-		font-family: "Inter";
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 24px;
@@ -66,7 +78,6 @@ body {
 	}
 
 	&__btn {
-		font-family: "Inter";
 		font-weight: 500;
 		font-size: 17px;
 		line-height: 25px;
@@ -79,6 +90,139 @@ body {
 		&:hover {
 			transform: translateY(-10px);
 			transition: 600ms;
+		}
+		@include breakpoint(lg) {
+			display: none;
+		}
+	}
+
+	.toggle-nav {
+		background-color: rgba(0, 0, 0, 0.8);
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.3s ease-in-out;
+		@include breakpoint(minlg) {
+			display: none;
+		}
+
+		ul {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			left: 50%;
+			top: 170px;
+			transition: all 0.3s ease-in-out;
+			transform: translateX(-50%);
+
+			li {
+				transform: translateY(50px);
+				opacity: 0;
+
+				a {
+					display: block;
+					font-size: 2em;
+					text-decoration: none;
+					padding: 10px 0;
+					text-align: center;
+					color: #fff;
+					font-weight: bold;
+					transition: all 0.2s ease-in-out;
+					text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+				}
+				button {
+					font-weight: 500;
+					font-size: 17px;
+					line-height: 25px;
+					letter-spacing: 0.2px;
+					color: #ffffff;
+					padding: 13.5px 46px;
+					background: none;
+					border: 1px solid #ffffff;
+					margin-top: 30px;
+					filter: drop-shadow(0px 4px 31px rgba(0, 0, 0, 0.15));
+					&:hover {
+						transform: translateY(-10px);
+						transition: 600ms;
+					}
+				}
+			}
+		}
+	}
+
+	.toggle-btn {
+		display: block;
+		position: fixed;
+		z-index: 100;
+		right: 40px;
+		top: 30px;
+		cursor: pointer;
+		@include breakpoint(minlg) {
+			display: none;
+		}
+
+		.bar {
+			width: 30px;
+			height: 2px;
+			margin: 7px auto;
+			background-color: #fff;
+			transition: all 0.3s ease-in-out;
+			box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.3);
+
+			&:nth-child(2) {
+				width: 20px;
+			}
+		}
+	}
+
+	#toggle:checked {
+		& ~ nav {
+			opacity: 1;
+			visibility: visible;
+			z-index: 99;
+			ul {
+				top: 70px;
+
+				li {
+					transform: translateY(0px);
+					opacity: 1;
+
+					@for $i from 1 through 4 {
+						$t: $i * 0.1;
+						&:nth-child(#{$i}) {
+							transition: all 0.3s cubic-bezier(0.6, 0, 0.8, 1.5) #{$t}s;
+						}
+					}
+				}
+			}
+		}
+
+		& + label.toggle-btn {
+			.bar {
+				background-color: red;
+
+				&:nth-child(2) {
+					transform: translateX(50px);
+					opacity: 0;
+				}
+
+				&:nth-child(1) {
+					transform: translateY(10px) rotate(45deg);
+				}
+
+				&:nth-child(3) {
+					transform: translateY(-8px) rotate(-45deg);
+				}
+			}
 		}
 	}
 }
@@ -162,6 +306,9 @@ body {
 .features {
 	font-family: "Inter";
 	padding-bottom: 100px;
+	@include breakpoint(lg) {
+		padding-bottom: 50px;
+	}
 	&__title {
 		font-weight: 400;
 		font-size: 52px;
@@ -187,6 +334,10 @@ body {
 		display: flex;
 		gap: 56px;
 		margin-bottom: 80px;
+		@include breakpoint(lg) {
+			align-items: center;
+			flex-direction: column;
+		}
 	}
 
 	&__left {
@@ -214,6 +365,12 @@ body {
 
 	&__right {
 		margin-top: 120px;
+		@include breakpoint(lg) {
+			display: flex;
+			gap: 52px;
+			justify-content: center;
+			margin-top: 0px;
+		}
 	}
 
 	&__box {
@@ -234,6 +391,9 @@ body {
 		letter-spacing: 0.1px;
 		margin-bottom: 20px;
 		max-width: 154px;
+		@include breakpoint(lg) {
+			max-width: none;
+		}
 	}
 
 	&__box-text {
@@ -242,12 +402,18 @@ body {
 		line-height: 24px;
 		letter-spacing: 0.2px;
 		max-width: 334px;
+		@include breakpoint(lg) {
+			max-width: 190px;
+		}
 	}
 }
 .contents {
 	font-family: "Inter";
 	padding-bottom: 50px;
 	margin-bottom: 100px;
+	@include breakpoint(lg) {
+		margin-bottom: 50px;
+	}
 	&__title {
 		font-weight: 400;
 		font-size: 52px;
@@ -272,6 +438,10 @@ body {
 		display: flex;
 		justify-content: center;
 		gap: 33px;
+		margin: 0px 15px 0px 15px;
+		@include breakpoint(lg) {
+			gap: 20px;
+		}
 	}
 
 	&__box {
@@ -327,11 +497,17 @@ body {
 	}
 
 	&__box-img {
+		@include breakpoint(lg) {
+			width: 100%;
+			height: auto;
+			object-fit: cover;
+		}
 	}
 }
 .gallery {
 	font-family: "Inter";
 	padding: 60px 0px;
+	margin-bottom: 60px;
 	&__title {
 		font-weight: 400;
 		font-size: 52px;
@@ -357,12 +533,22 @@ body {
 		align-items: center;
 		justify-content: center;
 		gap: 32px;
+		@include breakpoint(lg) {
+			flex-direction: column;
+			gap: 30px;
+		}
 	}
 
 	&__left {
+		width: 100%;
 		img {
 			border-radius: 12px;
 			object-fit: cover;
+			@include breakpoint(lg) {
+				width: 100%;
+				height: auto;
+				margin-bottom: 18px;
+			}
 		}
 	}
 
@@ -373,6 +559,10 @@ body {
 		grid-template-columns: repeat(3, 170px);
 		gap: 40px;
 		position: relative;
+		@include breakpoint(lg) {
+			grid-template-rows: repeat(3, 1fr);
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	&__img {
@@ -380,28 +570,66 @@ body {
 		border-radius: 12px;
 		&:nth-child(1) {
 			grid-column-start: 1;
+			@include breakpoint(lg) {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
 		}
 		&:nth-child(2) {
 			grid-column-start: 1;
 			row-gap: 10px;
+			@include breakpoint(lg) {
+				width: 100%;
+				height: 100%;
+				grid-row-start: 0;
+				grid-column-start: 2;
+			}
 		}
 		&:nth-child(3) {
 			position: absolute;
 			left: -104px;
 			bottom: 208px;
 			grid-column-start: 3;
+			@include breakpoint(lg) {
+				position: relative;
+				left: 0px;
+				bottom: 0px;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				grid-column-start: 1;
+				grid-row-start: 0;
+			}
 		}
 		&:nth-child(4) {
 			grid-column-start: 1;
 			grid-row-start: 0;
+			@include breakpoint(lg) {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				grid-column-start: 2;
+				grid-row-start: 0;
+			}
 		}
 		&:nth-child(5) {
 			grid-column-start: 0;
 			grid-row-start: 0;
+			@include breakpoint(lg) {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
 		}
 		&:nth-child(6) {
 			grid-column-start: 0;
 			grid-row-start: 0;
+			@include breakpoint(lg) {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
 		}
 	}
 }
@@ -431,9 +659,34 @@ body {
 		display: grid;
 		grid-template-columns: repeat(6, 1fr);
 		margin-bottom: 50px;
+		@include breakpoint(lg) {
+			grid-template-rows: repeat(2, 1fr);
+			justify-items: center;
+			row-gap: 30px;
+		}
 	}
 
 	&__img {
+		&:nth-child(1) {
+			grid-column-start: 0;
+			grid-row-start: 0;
+			@include breakpoint(lg) {
+				grid-column-start: 2;
+			}
+		}
+		&:nth-child(5) {
+			grid-column-start: 0;
+			grid-row-start: 0;
+			@include breakpoint(lg) {
+				grid-column-start: 3;
+			}
+		}
+		&:nth-child(6) {
+			grid-column-start: 0;
+			grid-row-start: 0;
+			@include breakpoint(lg) {
+			}
+		}
 	}
 }
 .testimonials {
@@ -466,6 +719,10 @@ body {
 		border: 1px solid #5c5c5c;
 		border-radius: 10px;
 		margin-bottom: 20px;
+		@include breakpoint(lg) {
+			min-width: 345px;
+			min-height: 278px;
+		}
 	}
 
 	&__box-profile {
@@ -503,6 +760,9 @@ body {
 		letter-spacing: 0.2px;
 		max-height: 96px;
 		max-width: 334px;
+		@include breakpoint(lg) {
+			max-width: 265px;
+		}
 	}
 
 	&__body-right {
@@ -511,6 +771,9 @@ body {
 .opentype {
 	font-family: "Inter";
 	margin-top: 80px;
+	@include breakpoint(lg) {
+		margin-top: 50px;
+	}
 	&__body {
 		display: flex;
 		background: #343434;
@@ -519,10 +782,20 @@ body {
 		margin-bottom: 80px;
 		max-height: 370px;
 		overflow: hidden;
+		@include breakpoint(lg) {
+			max-height: 732px;
+			flex-direction: column;
+		}
 	}
 
 	&__left {
 		padding: 78.5px;
+		@include breakpoint(lg) {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
 	}
 
 	&__title {
@@ -532,6 +805,10 @@ body {
 		letter-spacing: 0.2px;
 		max-width: 486px;
 		margin-bottom: 36px;
+		@include breakpoint(lg) {
+			text-align: center;
+			margin: 0 auto 36px auto;
+		}
 	}
 
 	&__btn {
@@ -543,6 +820,9 @@ body {
 		background: #4452fe;
 		box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.15);
 		padding: 13.5px 67px;
+		@include breakpoint(lg) {
+			margin: 0 auto;
+		}
 	}
 
 	&__right {
@@ -550,6 +830,10 @@ body {
 
 	&__img {
 		object-fit: cover;
+		@include breakpoint(lg) {
+			width: 100%;
+			height: auto;
+		}
 	}
 }
 .map {
@@ -559,10 +843,22 @@ body {
 	justify-content: center;
 }
 .footer {
+	&__main {
+		display: flex;
+		margin: 100px 0px;
+		@include breakpoint(lg) {
+			flex-direction: column;
+			margin: 50px 0px;
+			gap: 50px;
+		}
+	}
+
 	&__body {
 		display: flex;
 		gap: 75px;
-		margin: 100px 0px;
+		@include breakpoint(xs) {
+			flex-direction: column;
+		}
 	}
 
 	&__list {
@@ -591,7 +887,10 @@ body {
 	}
 
 	&__right {
-		margin-left: 15s0px;
+		margin-left: 200px;
+		@include breakpoint(lg) {
+			margin-left: 30px;
+		}
 	}
 
 	&__map {
